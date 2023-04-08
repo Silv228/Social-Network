@@ -1,0 +1,20 @@
+.app-wrapper {
+  padding-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-areas: 
+  "head cont"
+  "nav cont";
+  grid-template-rows: 60px 100%;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+.app-content{
+  box-sizing: content-box;
+  grid-area: cont;
+  background: #f3ccec;  
+}
+
+
+
+
