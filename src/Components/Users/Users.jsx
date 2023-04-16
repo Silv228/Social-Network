@@ -4,7 +4,7 @@ import ava from './../../image/ava_icon.png'
 
 
 const Users = (props) => {
-    let users_list = props.users.map((user) => <Person idInProgress = {props.idInProgress} name={user.name} key={user.id} ava={user.photos.small || ava} follow={user.followed} id={user.id} unfollowThunk = {props.unfollowThunk} followThunk={props.followThunk} />)
+    let users_list = props.users.map((user) => <Person isAuth = {props.isAuth} idInProgress = {props.idInProgress} name={user.name} key={user.id} ava={user.photos.small || ava} follow={user.followed} id={user.id} unfollowThunk = {props.unfollowThunk} followThunk={props.followThunk} />)
     let total_pages = Math.ceil(props.total_users / props.count)   
     let pages = []
     let maxpage = props.current_page === total_pages ? props.current_page : props.current_page + 1

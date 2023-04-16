@@ -8,7 +8,6 @@ const InitialSate = {
         { text: "14/88???", ident: 3, send: 'to' },
 
     ],
-    NewMessage: '',
     dialogData: [
         { name: 'Asuna', ava: 'link', ident: 1 },
         { name: 'Kirito', ava: 'link', ident: 2 },
@@ -22,13 +21,8 @@ const dialogReducer = (state = InitialSate, action) => {
     switch (action.type) {
         case ADD_MESSAGE:{
             return {...state,
-                MessageData : [ ...state.MessageData, {ident: 4, from: 'to', text: state.NewMessage}],
+                MessageData : [ ...state.MessageData, {ident: 4, from: 'to', text: action.message}],
                 NewMessage : ''
-            }
-        }
-        case UPDATE_MESSAGE:{
-            return {...state,
-                NewMessage: action.newText
             }
         }
         default:
@@ -36,7 +30,6 @@ const dialogReducer = (state = InitialSate, action) => {
     }
 }
 
-export const addmessageActionCreate = () =>({type : ADD_MESSAGE})
-export const updatemessageActionCreate = text =>({type : UPDATE_MESSAGE, newText : text})
+export const addmessageActionCreate = (message) =>({type : ADD_MESSAGE, message})
 
 export default dialogReducer

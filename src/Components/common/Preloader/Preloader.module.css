@@ -31,3 +31,12 @@
 .loaderCont span:nth-child(4){
     animation-delay: 1.5s;
 }
+.preloader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.preloader img{
+    display: block;
+    transform: scale(0.8);
+}

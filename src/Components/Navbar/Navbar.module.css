@@ -1,4 +1,5 @@
 .nav{
+  height: 122vh;
   background: #a14ce7;
   grid-area: nav;
 }
@@ -42,12 +43,4 @@
   background: white;
   height: 25px;
 }
-.register{
-  text-align: center;
-  display: block;
-  margin: auto;
-  font-weight: bold;
-  margin-top: 5px;
-  background: white;
-  height: 25px;
-}
+  

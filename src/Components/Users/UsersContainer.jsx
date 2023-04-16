@@ -19,7 +19,7 @@ class UsersAPIContainer extends React.Component {
                     <Users users={this.props.users} total_users={this.props.total_users}
                         count={this.props.count} current_page={this.props.current_page} onChangePage={this.onChangePage}
                         followThunk={this.props.followThunk} unfollowThunk = {this.props.unfollowThunk}
-                        idInProgress = {this.props.idInProgress}/>
+                        idInProgress = {this.props.idInProgress} isAuth = {this.props.isAuth}/>
                 }
             </>
         )
@@ -34,7 +34,8 @@ const mapStateToProps = (state) => {
         count: state.UsersPage.count,
         current_page: state.UsersPage.current_page,
         idInProgress : state.UsersPage.idInProgress,
-        isFetching : state.UsersPage.isFetching
+        isFetching : state.UsersPage.isFetching,
+        isAuth : state.Auth.isAuth
     })
 }
 

@@ -22,8 +22,14 @@ export const FollowApi = {
     }
 }
 export const AuthApi = {
-    LogIn(){
+    auth(){
         return (instance.get('auth/me').then(response => response.data))
+    },
+    logIn(email, password, rememberMe, captcha){
+        return (instance.post('auth/login', {email, password, rememberMe, captcha}).then((response) => response.data))
+    },
+    logOut(){
+        return (instance.delete('auth/login').then(response => response.data))
     }
 }
 export const ProfileApi = {
@@ -31,7 +37,7 @@ export const ProfileApi = {
         return (instance.get(`profile/${id}`).then(response => response.data))
     },
     setStatus(status){
-        return (instance.put('profile/status', {status : status}).then(response => console.log(response)))
+        return (instance.put('profile/status', {status : status}))
     },
     getStatus(id){
         return (instance.get(`profile/status/${id}`).then((response) => response.data))

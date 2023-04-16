@@ -24,7 +24,8 @@ const mapStateToProps = (state) => {
         isFetching : state.ProfilePage.isFetching
     })
 }
+
 export default compose(
     connect(mapStateToProps, { getProfileThunk}),
-        WithAuthRedirect
+    WithAuthRedirect
 )(ProfileContainer)

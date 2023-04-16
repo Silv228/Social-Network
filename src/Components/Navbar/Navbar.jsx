@@ -1,14 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import style from "./Navbar.module.css";
 
 const active_class = act => act.isActive ? style.active : style.item;
 
 const Navbar = (props) => {
-  let pass = props.isAuth ? <div>{props.login}</div> :
+  let pass = props.isAuth ?
+    <div>
+      {props.login}<br />
+      <button className={style.login} onClick={props.logOut}>Log out</button>
+    </div> :
     <div>
       <NavLink to='/login' className={style.login}>Login</NavLink>
-      <NavLink to='/register' className={style.register}>Register</NavLink>
     </div>
   return (
     <nav className={style.nav}>

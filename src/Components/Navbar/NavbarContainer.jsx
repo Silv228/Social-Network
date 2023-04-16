@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { authUserThunk } from "../../redux/auth_reducer";
+import { logOut } from "../../redux/auth_reducer";
 import Navbar from "./Navbar";  
 
 const NavbarContainer = (props) => {
-    useEffect (() => {
-        props.authUserThunk()
-    },[])
     return(
-        <Navbar {...props.data}/>
+        <Navbar logOut = {props.logOut} {...props.data}/>
     )
 }
 const mapStateToProps = (state)=> {
@@ -17,5 +14,5 @@ const mapStateToProps = (state)=> {
     }
 }
 
-const NavbarCont = connect(mapStateToProps, {authUserThunk})(NavbarContainer)
+const NavbarCont = connect(mapStateToProps, {logOut})(NavbarContainer)
 export default NavbarCont

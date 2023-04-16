@@ -6,8 +6,17 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import NavbarContainer from './Components/Navbar/NavbarContainer';
 import LoginPage from './Components/Login/Login';
+import { connect } from 'react-redux';
+import { initial } from './redux/app_reducer';
+import { useEffect } from 'react';
+import { compose } from 'redux';
+import Preloader from './Components/common/Preloader/Preloader';
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    props.initial()
+  },[])
+  if (!props.init) return <Preloader/>
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -28,6 +37,12 @@ const App = () => {
   );
 }
 
+const mapStateToProps = (state) => {
+  return({
+    init : state.appReducer.init
+  })
+}
 
-
-export default App;
+export default compose(
+  connect(mapStateToProps, {initial})
+) (App);
