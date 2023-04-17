@@ -61,9 +61,9 @@
     left: 1px;
     height: 25px;
     width: 25px;
-    background: url('view.png');
+    background: url('../../../image/view.png');
 }
 
 .customCheckbox input:checked~.checkmark {
-    background: url('hide.png');
+    background: url('../../../image/hide.png');
 }
