@@ -5,6 +5,7 @@ import { getProfileThunk } from '../../redux/profile_reducer'
 import { useParams } from "react-router-dom";
 import { WithAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import { getAuthId, getIsFetchingProfile, getProfile } from "../../redux/selectors";
 
 const ProfileContainer = (props) => {
     let {userId} = useParams()
@@ -19,9 +20,9 @@ const ProfileContainer = (props) => {
 
 const mapStateToProps = (state) => {
     return ({
-        profile : state.ProfilePage.profile,
-        id : state.Auth.id,
-        isFetching : state.ProfilePage.isFetching
+        profile : getProfile(state),
+        id : getAuthId(state),
+        isFetching : getIsFetchingProfile(state)
     })
 }
 

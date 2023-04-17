@@ -11,6 +11,7 @@ import { initial } from './redux/app_reducer';
 import { useEffect } from 'react';
 import { compose } from 'redux';
 import Preloader from './Components/common/Preloader/Preloader';
+import { getInit } from './redux/selectors';
 
 const App = (props) => {
   useEffect(() => {
@@ -39,7 +40,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return({
-    init : state.appReducer.init
+    init : getInit(state)
   })
 }
 

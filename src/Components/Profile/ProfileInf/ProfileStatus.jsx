@@ -3,6 +3,7 @@ import style from "./ProfileStatus.module.css"
 import { ProfileApi } from "../../../api/api";
 import { updateStatus } from "../../../redux/profile_reducer";
 import { connect } from "react-redux";
+import { getAuthId, getId, getStatus } from "../../../redux/selectors";
 
 const ProfileStatus = (props) => {
     const [editMode, setEditMode] = useState(false)
@@ -31,9 +32,9 @@ const ProfileStatus = (props) => {
 
 const mapStateToProps = (state) => {
     return ({
-        id: state.ProfilePage.profile.userId,
-        status: state.ProfilePage.status,
-        myId: state.Auth.id
+        id: getId(state),
+        status: getStatus(state),
+        myId: getAuthId(state)
     })
 }
 

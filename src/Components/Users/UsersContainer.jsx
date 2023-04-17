@@ -3,6 +3,7 @@ import { followThunk, unfollowThunk, getUsersThunk } from "../../redux/users_red
 import Users from "./Users";
 import React from "react"
 import Preloader from "../common/Preloader/Preloader";
+import { getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getTotalUsers, getUsers } from "../../redux/selectors";
 
 class UsersAPIContainer extends React.Component {
     componentDidMount() {
@@ -29,13 +30,13 @@ class UsersAPIContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return ({
-        users: state.UsersPage.users,
-        total_users: state.UsersPage.total_users,
-        count: state.UsersPage.count,
-        current_page: state.UsersPage.current_page,
-        idInProgress : state.UsersPage.idInProgress,
-        isFetching : state.UsersPage.isFetching,
-        isAuth : state.Auth.isAuth
+        users: getUsers(state),
+        total_users: getTotalUsers(state),
+        count: getCount(state),
+        current_page: getCurrentPage(state),
+        idInProgress : getIdInProgress(state),
+        isFetching : getIsFetchingUsers(state),
+        isAuth : getIsAuth(state)
     })
 }
 
