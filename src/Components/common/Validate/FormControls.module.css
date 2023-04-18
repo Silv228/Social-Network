@@ -1,4 +1,5 @@
 .formControls {
+    font-family:  'Poppins';
     border: 2px solid rgb(0, 204, 255);
     outline: none;
 }
@@ -26,6 +27,7 @@
 }
 
 .passField {
+    font-family:  'Poppins';
     margin: auto;
     background: rgb(233, 233, 236);
     width: 235px;
