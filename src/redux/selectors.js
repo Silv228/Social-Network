@@ -1,3 +1,5 @@
+import { createSelector } from "@reduxjs/toolkit"
+
 export const getUsers = (state) => {
     return state.UsersPage.users
 }
@@ -37,5 +39,10 @@ export const getIsFetchingProfile = (state) => {
 export const getInit = (state) => {
     return state.appReducer.init
 }
-
+export const getQueryUser = (state) => {
+    return state.UsersPage.queryUser
+}
+export const getSerchingUsers = createSelector(getUsers, (users) => {
+    return users.filter((user) => user.include())
+})
 
