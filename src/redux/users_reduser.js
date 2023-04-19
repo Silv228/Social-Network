@@ -8,7 +8,6 @@ const SET_TOTAL_USERS = 'SET_TOTAL_USERS'
 const IS_FETCHING = 'IS_FETCHING'
 const TOOGLE_IN_PROGRESS = 'TOOGLE_IN_PROGRESS'
 const CHANGE_SEARCH_FIELD = 'CHANGE_SEARCH_FIELD'
-const CHANGE_ORDER_LIST = 'CHANGE_ORDER_LIST'
 
 const InitialSate = {
     users : [],
@@ -17,8 +16,7 @@ const InitialSate = {
     count : 5,
     isFetching : false,
     idInProgress : [],
-    queryUser : '',
-    directList : true
+    queryUser : ''
 }
 const usersReduser = (state = InitialSate, action) => {
     switch (action.type){
@@ -65,8 +63,6 @@ const usersReduser = (state = InitialSate, action) => {
             }
         case CHANGE_SEARCH_FIELD:
             return {...state, queryUser : action.term}
-        case CHANGE_ORDER_LIST:
-            return {...state, directList : action.order}
         default : 
             return state
     }
@@ -80,17 +76,15 @@ export const setTotalUsers = (Tusers) => ({type : SET_TOTAL_USERS, Tusers})
 export const setFetching = (isFetching) => ({type : IS_FETCHING, isFetching})
 export const setIdInProgress = (isFetching, id) => ({type : TOOGLE_IN_PROGRESS, isFetching, id})
 export const changeQueryUser = (term) => ({type : CHANGE_SEARCH_FIELD, term})
-export const changeOrderList = (order) => ({type : CHANGE_ORDER_LIST, order})
 
 //Thunk Creators
-export const getUsersThunk = (current_page, count, term, orderList, total_page) => {
+export const getUsersThunk = (current_page, count, term) => {
     return (dispatch) => {  
-        const page = orderList ? current_page : total_page - current_page + 1
         dispatch(setCurrentPage(current_page))
         dispatch(setFetching(true))
-        usersApi.getUsers(page, count, term).then((users) => {
+        usersApi.getUsers(current_page, count, term).then((users) => {
             dispatch(setFetching(false))
-            dispatch(setUsers(orderList ? users.items : users.items.reverse()))
+            dispatch(setUsers(users.items))
             dispatch(setTotalUsers(users.totalCount))
         })
     }

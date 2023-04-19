@@ -20,8 +20,6 @@ const Users = (props) => {
     return (
         <>
             <input onChange={changeField} placeholder="Search users" value={props.queryUser} />
-            <button onClick={() => props.changeOrderList(true)}>1</button>
-            <button onClick={() => props.changeOrderList(false)}>2</button>
             {/* <button onClick={}>followed</button> */}    
             {
                 props.isFetching ? <Preloader /> : 
