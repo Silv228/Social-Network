@@ -1,23 +1,25 @@
 import { connect } from "react-redux";
-import { followThunk, unfollowThunk, getUsersThunk, changeQueryUser } from "../../redux/users_reduser";
+import { followThunk, unfollowThunk, getUsersThunk, changeQueryUser, setCurrentPage, changeOrderList } from "../../redux/users_reduser";
 import Users from "./Users";
 import React, { useEffect } from "react"
-import Preloader from "../common/Preloader/Preloader";
-import { getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getQueryUser, getTotalUsers, getUsers } from "../../redux/selectors";
+import { getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getOrderList, getQueryUser, getTotalUsers, getUsers } from "../../redux/selectors";
 
 const UsersAPIContainer = (props) => {
+    let total_pages = Math.ceil(props.total_users / props.count)
     useEffect(() => {
-        props.getUsersThunk(props.current_page, props.count, props.queryUser)
-    }, [props.queryUser])
+        props.setCurrentPage(1)
+        props.getUsersThunk(props.current_page, props.count, props.queryUser, props.directList, total_pages)
+    }, [props.queryUser, props.directList])
     const onChangePage = (page) => {
-        props.getUsersThunk(page, props.count, props.queryUser)
+        props.getUsersThunk(page, props.count, props.queryUser, props.directList, total_pages)
     }
     return (
         <>
-            <Users isFetching={props.isFetching} users={props.users} total_users={props.total_users}
+            <Users directList = {props.directList} isFetching={props.isFetching} users={props.users} total_users={props.total_users}
                 count={props.count} current_page={props.current_page} onChangePage={onChangePage}
                 followThunk={props.followThunk} unfollowThunk={props.unfollowThunk} changeQueryUser={props.changeQueryUser}
                 idInProgress={props.idInProgress} queryUser={props.queryUser} isAuth={props.isAuth} 
+                changeOrderList = {props.changeOrderList} total_pages = {total_pages}
             />
         </>
     )
@@ -33,10 +35,11 @@ const mapStateToProps = (state) => {
         idInProgress: getIdInProgress(state),
         isFetching: getIsFetchingUsers(state),
         isAuth: getIsAuth(state),
-        queryUser: getQueryUser(state)
+        queryUser: getQueryUser(state),
+        directList: getOrderList(state)
     })
 }
 
-const UsersContainer = connect(mapStateToProps, { getUsersThunk, followThunk, unfollowThunk, changeQueryUser })(UsersAPIContainer)
+const UsersContainer = connect(mapStateToProps, { getUsersThunk, followThunk, unfollowThunk, changeQueryUser, setCurrentPage, changeOrderList })(UsersAPIContainer)
 
 export default UsersContainer

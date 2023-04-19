@@ -11,6 +11,7 @@
     border-radius: 10px;
 }
 .ava{
+    cursor: pointer;
     object-fit: cover;
     image-rendering:crisp-edges;
     height: 70px;
@@ -20,6 +21,7 @@
 
 }
 .name{
+    cursor: pointer;
     text-decoration: none;
     color: black;
     display: block;
