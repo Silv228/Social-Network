@@ -1,32 +1,79 @@
-.users{
-    padding-top: 50px;
+.users {
+    padding-top: 20px;
 }
-.pagination{
+
+.pagination {
     display: flex;
     justify-content: center;
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
 }
-.page_num{
+
+.page_num {
     font-size: 24px;
     margin-left: 5px;
     margin-bottom: 10px;
     width: 50px;
     cursor: pointer;
 }
-.active_page.page_num::after{
+
+.active_page.page_num::after {
     content: '';
     display: block;
     height: 2px;
     background: gray;
     animation: pickP .3s cubic-bezier(0.1, 0.7, 1.0, 0.1);
 }
+
 @keyframes pickP {
     from {
         width: 0px;
     }
-    to{
+
+    to {
         width: 100%
     }
+}
+
+.SettingSearch {
+    display: flex;
+    padding-top: 20px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.search_users {
+    width: 300px;
+    height: 30px;
+    font-size: 24px;
+    font-family: 'Poppins';
+    border: none;
+}
+
+.search_users:focus {
+    outline: 2px solid #fd7dd2;
+}
+
+.sort_btn {
+    content: '';
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.sort_btn.follow {
+    background: url(../../image/Follow.svg);
+    background-repeat: no-repeat;
+}
+
+.sort_btn.nofollow {
+    background: url(../../image/noFollow.svg);
+    background-repeat: no-repeat;
+}
+
+.sort_btn.all {
+    background: url(../../image/Search.svg);
+    background-repeat: no-repeat;
 }

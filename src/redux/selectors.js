@@ -40,3 +40,6 @@ export const getInit = (state) => {
 export const getQueryUser = (state) => {
     return state.UsersPage.queryUser
 }
+export const getArgsSort = (state) => {
+    return state.UsersPage.sortArgFoll
+}

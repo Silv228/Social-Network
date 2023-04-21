@@ -1,24 +1,20 @@
 import { connect } from "react-redux";
-import { followThunk, unfollowThunk, getUsersThunk, changeQueryUser, setCurrentPage } from "../../redux/users_reduser";
+import { followThunk, unfollowThunk, getUsersThunk, changeQueryUser, changeArgFoll } from "../../redux/users_reduser";
 import Users from "./Users";
 import React, { useEffect } from "react"
-import { getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getQueryUser, getTotalUsers, getUsers } from "../../redux/selectors";
+import { getArgsSort, getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getQueryUser, getTotalUsers, getUsers } from "../../redux/selectors";
 
 const UsersAPIContainer = (props) => {
     let total_pages = Math.ceil(props.total_users / props.count)
     useEffect(() => {
-        props.getUsersThunk(props.current_page, props.count, props.queryUser)
-    }, [props.queryUser])
+        props.getUsersThunk(props.current_page, props.count, props.queryUser, props.sortArgFoll)
+    }, [props.queryUser, props.sortArgFoll])
     const onChangePage = (page) => {
-        props.getUsersThunk(page, props.count, props.queryUser)
+        props.getUsersThunk(page, props.count, props.queryUser, props.sortArgFoll)
     }
     return (
         <>
-            <Users isFetching={props.isFetching} users={props.users} total_users={props.total_users}
-                count={props.count} current_page={props.current_page} onChangePage={onChangePage}
-                followThunk={props.followThunk} unfollowThunk={props.unfollowThunk} changeQueryUser={props.changeQueryUser}
-                idInProgress={props.idInProgress} queryUser={props.queryUser} isAuth={props.isAuth} total_pages = {total_pages}
-            />
+            <Users {...props} onChangePage = {onChangePage} total_pages = {total_pages} />
         </>
     )
 
@@ -33,10 +29,11 @@ const mapStateToProps = (state) => {
         idInProgress: getIdInProgress(state),
         isFetching: getIsFetchingUsers(state),
         isAuth: getIsAuth(state),
-        queryUser: getQueryUser(state)
+        queryUser: getQueryUser(state),
+        sortArgFoll: getArgsSort(state)
     })
 }
 
-const UsersContainer = connect(mapStateToProps, { getUsersThunk, followThunk, unfollowThunk, changeQueryUser, setCurrentPage})(UsersAPIContainer)
+const UsersContainer = connect(mapStateToProps, { getUsersThunk, followThunk, unfollowThunk, changeQueryUser, changeArgFoll})(UsersAPIContainer)
 
 export default UsersContainer
