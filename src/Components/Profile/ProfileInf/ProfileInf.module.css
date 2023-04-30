@@ -10,15 +10,44 @@
   height: 200px;
 }
 .ava{
-  border-radius: 100%;
+  width: 130px;
   height: 130px;
   display: block;
   margin: auto;
   position: relative;
   bottom: 65px;
   border: 2px solid black;
+  border-radius: 50%;
+  background: black;
 }
-.name{
+.ava img{
+  margin: 0px;
+  display: block;
+  border-radius: 50%;
+  height: 130px;
+  width: 130px;
+}
+.ava input{
+  width: 0;
+	height: 0;
+}
+.ava span{
+  border-radius: 50%;
+  font-size: 0px;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  height: 90px;
+  width: 130px;
+  padding-top: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.ava:hover span{
+  font-size: 35px;
+  background: rgba(129, 129, 129, 0.466);
+}
+.name{  
   font-size: 30px;
   text-align: center;
   display: block;

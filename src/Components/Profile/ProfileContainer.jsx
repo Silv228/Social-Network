@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
-import { getProfileThunk } from '../../redux/profile_reducer'
+import { getProfileThunk, saveAvatar } from '../../redux/profile_reducer'
 import { useParams } from "react-router-dom";
 import { WithAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
@@ -14,7 +14,7 @@ const ProfileContainer = (props) => {
         props.getProfileThunk(id)
     },[userId])
     return (
-        <Profile isFetching = {props.isFetching} profile = {props.profile}/>
+        <Profile saveAvatar = {props.saveAvatar} isOwner = {!userId} isFetching = {props.isFetching} profile = {props.profile}/>
     )
 }
 
@@ -27,6 +27,6 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, { getProfileThunk}),
+    connect(mapStateToProps, { getProfileThunk, saveAvatar}),
     WithAuthRedirect
 )(ProfileContainer)
