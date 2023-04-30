@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.dc60e4ad.css",
-    "main.js": "/static/js/main.d11aee6e.js",
-    "static/js/787.2843ca88.chunk.js": "/static/js/787.2843ca88.chunk.js",
-    "static/media/preloader-anime.gif": "/static/media/preloader-anime.ca464586c65d365c9016.gif",
-    "static/media/ava_icon.png": "/static/media/ava_icon.b1dd54ff56844a63481e.png",
-    "index.html": "/index.html",
-    "static/media/noFollow.svg": "/static/media/noFollow.4210f0a5591b6cf94ab9.svg",
-    "static/media/Follow.svg": "/static/media/Follow.db8d988669365f2b4bab.svg",
-    "static/media/Search.svg": "/static/media/Search.4d1ddb52f0aef1af3093.svg",
-    "main.dc60e4ad.css.map": "/static/css/main.dc60e4ad.css.map",
-    "main.d11aee6e.js.map": "/static/js/main.d11aee6e.js.map",
-    "787.2843ca88.chunk.js.map": "/static/js/787.2843ca88.chunk.js.map"
+    "main.css": "/Social-Network/static/css/main.0fb7b8b6.css",
+    "main.js": "/Social-Network/static/js/main.23311841.js",
+    "static/js/787.2843ca88.chunk.js": "/Social-Network/static/js/787.2843ca88.chunk.js",
+    "static/media/preloader-anime.gif": "/Social-Network/static/media/preloader-anime.ca464586c65d365c9016.gif",
+    "static/media/ava_icon.png": "/Social-Network/static/media/ava_icon.b1dd54ff56844a63481e.png",
+    "index.html": "/Social-Network/index.html",
+    "static/media/noFollow.svg": "/Social-Network/static/media/noFollow.4210f0a5591b6cf94ab9.svg",
+    "static/media/Follow.svg": "/Social-Network/static/media/Follow.db8d988669365f2b4bab.svg",
+    "static/media/Search.svg": "/Social-Network/static/media/Search.4d1ddb52f0aef1af3093.svg",
+    "main.0fb7b8b6.css.map": "/Social-Network/static/css/main.0fb7b8b6.css.map",
+    "main.23311841.js.map": "/Social-Network/static/js/main.23311841.js.map",
+    "787.2843ca88.chunk.js.map": "/Social-Network/static/js/787.2843ca88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc60e4ad.css",
-    "static/js/main.d11aee6e.js"
+    "static/css/main.0fb7b8b6.css",
+    "static/js/main.23311841.js"
   ]
 }
