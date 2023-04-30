@@ -10,7 +10,7 @@ const Post = (props) => {
     <div className={style.parea}>
       <p className={style.text}>{props.message}</p>
       <div className={style.reaction}>
-        <span>{props.likes}like</span>
+        <span>{props.likes} likes</span>
       </div>
     </div>
   </div>

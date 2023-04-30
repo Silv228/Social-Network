@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_MESSAGE = 'UPDATE-MESSAGE'
 
 const InitialSate = {
     MessageData: [
@@ -21,8 +20,7 @@ const dialogReducer = (state = InitialSate, action) => {
     switch (action.type) {
         case ADD_MESSAGE:{
             return {...state,
-                MessageData : [ ...state.MessageData, {ident: 4, from: 'to', text: action.message}],
-                NewMessage : ''
+                MessageData : [ ...state.MessageData, {ident: 4, from: 'to', text: action.message}]
             }
         }
         default:

@@ -2,40 +2,6 @@
     padding-top: 20px;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    user-select: none;
-}
-
-.page_num {
-    font-size: 24px;
-    margin-left: 5px;
-    margin-bottom: 10px;
-    width: 50px;
-    cursor: pointer;
-}
-
-.active_page.page_num::after {
-    content: '';
-    display: block;
-    height: 2px;
-    background: gray;
-    animation: pickP .3s cubic-bezier(0.1, 0.7, 1.0, 0.1);
-}
-
-@keyframes pickP {
-    from {
-        width: 0px;
-    }
-
-    to {
-        width: 100%
-    }
-}
-
 .SettingSearch {
     display: flex;
     padding-top: 20px;

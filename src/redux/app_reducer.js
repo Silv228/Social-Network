@@ -21,11 +21,10 @@ const appReducer = (state = InitialState, action) =>{
 
 export const initalSuccess = () => ({type : 'INIT'})
 
-export const initial = () => (dispatch) =>{
+export const initial = () => async (dispatch) =>{
     const promise = dispatch(authUserThunk())
-    Promise.all([promise]).then(() => {
-        dispatch(initalSuccess())
-    })
+    await Promise.all([promise])
+    dispatch(initalSuccess())
     
 }
 

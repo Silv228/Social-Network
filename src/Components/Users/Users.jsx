@@ -3,6 +3,7 @@ import style from './Users.module.css'
 import ava from './../../image/ava_icon.png'
 import React from "react"
 import Preloader from "../common/Preloader/Preloader"
+import Paginator from "../common/Paginator/Paginator"
 
 const Users = (props) => {
     let users_list = props.users.map((user) => <Person isAuth={props.isAuth} idInProgress={props.idInProgress} name={user.name} key={user.id} ava={user.photos.small || ava} follow={user.followed} id={user.id} unfollowThunk={props.unfollowThunk} followThunk={props.followThunk} />)
@@ -28,10 +29,8 @@ const Users = (props) => {
                 props.isFetching ? <Preloader /> :
                     <div>
                         <div className={style.users}>{users_list}</div>
-                        {props.total_pages ? <div className={style.pagination}>
-                            {pages.map((page) => <button className={`${style.page_num} ${page === props.current_page ? style.active_page : ''}`}
-                                onClick={() => props.onChangePage(page)} key={page}>{page}</button>)}
-                        </div> :
+                        {props.total_pages ?
+                            <Paginator pages = {pages} current_page = {props.current_page} onChangePage = {props.onChangePage}/> :
                             <h1>No Search</h1>}
                     </div>
             }

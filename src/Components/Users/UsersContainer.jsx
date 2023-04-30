@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { followThunk, unfollowThunk, getUsersThunk, changeQueryUser, changeArgFoll } from "../../redux/users_reduser";
+import { followThunk,  setCurrentPage, unfollowThunk, getUsersThunk, changeQueryUser, changeArgFoll } from "../../redux/users_reduser";
 import Users from "./Users";
 import React, { useEffect } from "react"
 import { getArgsSort, getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getQueryUser, getTotalUsers, getUsers } from "../../redux/selectors";
@@ -7,7 +7,7 @@ import { getArgsSort, getCount, getCurrentPage, getIdInProgress, getIsAuth, getI
 const UsersAPIContainer = (props) => {
     let total_pages = Math.ceil(props.total_users / props.count)
     useEffect(() => {
-        props.getUsersThunk(props.current_page, props.count, props.queryUser, props.sortArgFoll)
+        props.getUsersThunk(1, props.count, props.queryUser, props.sortArgFoll)
     }, [props.queryUser, props.sortArgFoll])
     const onChangePage = (page) => {
         props.getUsersThunk(page, props.count, props.queryUser, props.sortArgFoll)
@@ -34,6 +34,6 @@ const mapStateToProps = (state) => {
     })
 }
 
-const UsersContainer = connect(mapStateToProps, { getUsersThunk, followThunk, unfollowThunk, changeQueryUser, changeArgFoll})(UsersAPIContainer)
+const UsersContainer = connect(mapStateToProps, { getUsersThunk, setCurrentPage, followThunk, unfollowThunk, changeQueryUser, changeArgFoll})(UsersAPIContainer)
 
 export default UsersContainer

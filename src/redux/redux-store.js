@@ -6,6 +6,7 @@ import { applyMiddleware, combineReducers, legacy_createStore } from "@reduxjs/t
 import ThunkMiddleware from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form'
 import appReducer from './app_reducer';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 let reducers = combineReducers({
     ProfilePage : profileReducer,
@@ -15,6 +16,6 @@ let reducers = combineReducers({
     appReducer : appReducer,
     form : formReducer
 })
-let store = legacy_createStore(reducers, applyMiddleware(ThunkMiddleware))
+let store = legacy_createStore(reducers, composeWithDevTools(applyMiddleware(ThunkMiddleware)))
 
 export default store;

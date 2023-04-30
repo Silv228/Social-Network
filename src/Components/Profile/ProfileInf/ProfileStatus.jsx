@@ -5,7 +5,7 @@ import { updateStatus } from "../../../redux/profile_reducer";
 import { connect } from "react-redux";
 import { getAuthId, getId, getStatus } from "../../../redux/selectors";
 
-const ProfileStatus = (props) => {
+export const ProfileStatus = (props) => {
     const [editMode, setEditMode] = useState(false)
     const [status, setStatus] = useState(props.status)
     useEffect(() => {
@@ -38,6 +38,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-const ProfileStatusContainer = connect(mapStateToProps, { updateStatus })(ProfileStatus)
-
-export default ProfileStatusContainer
+export default connect(mapStateToProps, { updateStatus })(ProfileStatus)
