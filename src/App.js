@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import ProfileContainer from './Components/Profile/ProfileContainer';
 import UsersContainer from './Components/Users/UsersContainer';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter} from 'react-router-dom';
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import NavbarContainer from './Components/Navbar/NavbarContainer';
 import LoginPage from './Components/Login/Login';
@@ -19,7 +19,7 @@ const App = (props) => {
   },[])
   if (!props.init) return <Preloader/>
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-wrapper">
         <Header />
         <NavbarContainer />
@@ -34,7 +34,7 @@ const App = (props) => {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
