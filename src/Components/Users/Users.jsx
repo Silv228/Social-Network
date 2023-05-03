@@ -6,7 +6,7 @@ import Preloader from "../common/Preloader/Preloader"
 import Paginator from "../common/Paginator/Paginator"
 
 const Users = (props) => {
-    let users_list = props.users.map((user) => <Person isAuth={props.isAuth} idInProgress={props.idInProgress} name={user.name} key={user.id} ava={user.photos.small || ava} follow={user.followed} id={user.id} unfollowThunk={props.unfollowThunk} followThunk={props.followThunk} />)
+    let users_list = props.users.map((user) => <Person myId = {props.myId} isAuth={props.isAuth} idInProgress={props.idInProgress} name={user.name} key={user.id} ava={user.photos.small || ava} follow={user.followed} id={user.id} unfollowThunk={props.unfollowThunk} followThunk={props.followThunk} />)
     let pages = []
     let classNameForBtn = props.sortArgFoll === null ? style.all : props.sortArgFoll ? style.follow : style.nofollow
     if (props.total_pages) {

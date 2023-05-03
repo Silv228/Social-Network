@@ -19,8 +19,8 @@ export const ProfileStatus = (props) => {
     return (
         <div>
             {!editMode ?
-                <div className={`${(props.id === props.myId) ? style.mystatus : style.status}`}>
-                    <span onDoubleClick={() => { if (props.id === props.myId) setEditMode(true) }}>{status || ((props.id === props.myId) ? 'Add status' : 'No Status')}</span>
+                <div className={`${props.isOwner ? style.mystatus : style.status}`}>
+                    <span onDoubleClick={() => { props.isOwner && setEditMode(true) }}>{status || (props.isOwner ? 'Add status' : 'No Status')}</span>
                 </div> :
                 <div className={`${style.status} ${style.editabeStatus}`}>
                     <input onChange={(e) => setStatus(e.target.value)} autoFocus={true} onBlur={() => addStatus()} value={status} />
@@ -30,11 +30,12 @@ export const ProfileStatus = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return ({
         id: getId(state),
         status: getStatus(state),
-        myId: getAuthId(state)
+        myId: getAuthId(state),
+        isOwner: ownProps.isOwner
     })
 }
 

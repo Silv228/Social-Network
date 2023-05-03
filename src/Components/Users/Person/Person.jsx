@@ -1,8 +1,6 @@
 import React from "react"
 import style from './Person.module.css'
 import { NavLink } from 'react-router-dom'
-import { FollowApi } from "../../../api/api"
-
 
 const Person = (props) => {
 
@@ -19,13 +17,12 @@ const Person = (props) => {
                 <div className={style.btn}>
                     <NavLink to={`/users/${props.id}`} className={style.name}>{props.name}</NavLink>
                     {
-                        (!props.follow && props.isAuth) ?
-                            <button disabled={props.idInProgress.includes(props.id)} onClick={onAddFriens} className={style.folbtn}>Add Friend</button> : props.follow && props.isAuth ?
+                        (!props.follow && (props.isAuth && props.myId !== props.id)) ?
+                            <button disabled={props.idInProgress.includes(props.id)} onClick={onAddFriens} className={style.folbtn}>Add Friend</button> : props.follow && (props.isAuth && props.myId !== props.id) ?
                             <button disabled={props.idInProgress.includes(props.id)} onClick={onDeleteFrriend} className={style.folbtn}>Remove Friend</button> : ''
                     }
                 </div>
             </div>
-
         </div>
     )
 }

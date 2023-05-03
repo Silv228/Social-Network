@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { followThunk,  setCurrentPage, unfollowThunk, getUsersThunk, changeQueryUser, changeArgFoll } from "../../redux/users_reduser";
 import Users from "./Users";
 import React, { useEffect } from "react"
-import { getArgsSort, getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getQueryUser, getTotalUsers, getUsers } from "../../redux/selectors";
+import { getArgsSort, getAuthId, getCount, getCurrentPage, getIdInProgress, getIsAuth, getIsFetchingUsers, getQueryUser, getTotalUsers, getUsers } from "../../redux/selectors";
 
 const UsersAPIContainer = (props) => {
     let total_pages = Math.ceil(props.total_users / props.count)
@@ -30,7 +30,8 @@ const mapStateToProps = (state) => {
         isFetching: getIsFetchingUsers(state),
         isAuth: getIsAuth(state),
         queryUser: getQueryUser(state),
-        sortArgFoll: getArgsSort(state)
+        sortArgFoll: getArgsSort(state),
+        myId: getAuthId(state)
     })
 }
 

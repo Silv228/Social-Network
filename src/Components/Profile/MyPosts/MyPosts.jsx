@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 const MyPosts = (props) => {
   
-  const postElements = props.state.posts.map(post => <Post ava = {props.state.profile.photos.small} message={post.message} likes={post.likes} />)
+  const postElements = props.state.posts.map(post => <Post ava = {props.state.profile.photos.small} key={post.id} message={post.message} likes={post.likes} />)
   const onAddPost = (values) => {
     props.newPost(values.newPost)
   }

@@ -43,3 +43,6 @@ export const getQueryUser = (state) => {
 export const getArgsSort = (state) => {
     return state.UsersPage.sortArgFoll
 }
+export const getInitialDataContact = (state) => {
+    return state.ProfilePage.initialDataContact
+}
