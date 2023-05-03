@@ -56,6 +56,7 @@
 .contacts{
   display : block;
   padding: 0px;
+  margin: 0;
   box-sizing: content-box;
   width: fit-content;
   margin-left: auto;
@@ -66,4 +67,8 @@
   list-style-type: none;
   gap: 5px;
   
+}
+.contacts li{
+  padding: 0px;
+  margin: 0;
 }

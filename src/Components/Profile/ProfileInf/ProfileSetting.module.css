@@ -5,17 +5,17 @@
     left: 42vw;
     display: flex;
     flex-direction: column;
-    background: grey;
     align-items: center;
     justify-content: center;
     border-radius: 30px;
     width: 400px;
     height: 500px;
+    background: linear-gradient(180deg, rgb(197, 197, 197) 0 5%, rgb(117, 117, 117));
     
 }
-.contFormSett input{
+.contactField{
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 300px;
     height: 30px;
     font-size: 24px;
@@ -24,4 +24,11 @@
     width: 200px;
     height: 30px;
     outline: none;
+}
+.saveBtn{
+    cursor: pointer;
+    width: 205px;
+    height: 40px;
+    border: none;
+    background: linear-gradient(180deg, rgb(223, 222, 222) 0 20%, rgb(95, 95, 95));
 }

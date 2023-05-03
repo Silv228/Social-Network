@@ -1,5 +1,4 @@
 .content{
-    height: 100%;
     display: grid;
     grid-template-areas: 'dialogs dialog'
                          'dialogs inputmess';
@@ -28,7 +27,6 @@
 
 .dialogs{
     grid-area: dialogs;
-    height: 100%;
     border-right: 5px solid black;
 }
 .sendmess{

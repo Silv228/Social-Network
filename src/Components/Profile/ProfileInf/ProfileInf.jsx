@@ -16,6 +16,7 @@ const ProfileInf = (props) => {
     return socNetContact
   }
   const contacts = linksCommunication().map((link) => <li key={linksCommunication().indexOf(link)}><a href={(/^https:\/\//.test(props.contacts[link]) ? '' : 'https://') + props.contacts[link]} rel="noopener noreferrer" target="_blank">{iconsContacts[link]}</a></li>)
+  
   return (
     <div className={style.content}>
       {props.editMode && <ProfileSetting initialDataContact = {props.initialDataContact} updateProfile = {props.updateProfile} profile={props.profile} editMode={props.editMode} setEditMode={props.setEditMode} />}

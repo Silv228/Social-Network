@@ -5,7 +5,6 @@ import style from './ProfileSetting.module.css'
 const ProfileSetting = (props) => {
     const submitProfileData = (value) => {
         props.updateProfile(value)
-        console.log(value)
         props.setEditMode(false)
     }
     return (
@@ -17,13 +16,13 @@ const ProfileSetting = (props) => {
 
 const SettingForm = (props) => {
     const contacts = Object.keys(props.initialDataContact).slice(0, 7).map((key) => {
-        return <Field component={'input'} key={key} placeholder={key} name={key} />
+        return <Field className={style.contactField} component={'input'} key={key} placeholder={key} name={key} />
     })
 
     return (
         <form onSubmit={props.handleSubmit}>
             {contacts}
-            <button>Save</button>
+            <button className={style.saveBtn}>Save</button>
         </form>
     )
 }
