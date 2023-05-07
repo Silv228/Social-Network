@@ -2,23 +2,22 @@ import React from "react";
 import style from './Dialogs.module.css';
 import DialogItem from "./Dialog_item/Dialog_item";
 import Message from "./Message/Message";
-import { Field, reduxForm } from "redux-form";
-
+import { useForm } from "react-hook-form";
 
 const Dialogs = ({setMessage, state }) => {
 
   const dialogElements = state.dialogData.map(dialog => <DialogItem
-    name={dialog.name} ident={dialog.ident} ava={dialog.ava} />)
+    name={dialog.name} key={dialog.ident} ident={dialog.ident} ava={dialog.ava} />)
   const MessageElements = state.MessageData.map(mess => <Message
-    state={mess.send}>{mess.text}</Message>)
+    state={mess.send} key={mess.ident}>{mess.text}</Message>)
 
-
-  let onSetMessage = (values) => {
-    setMessage(values.message);
+  let onSetMessage = (data, reset) => {
+    setMessage(data.message);
+    reset()
   }
   return (
     <div className={style.content}>
-      <FormNewMessageRedux onSubmit={onSetMessage} />
+      <FormNewMessage onSubmit={onSetMessage} />
       <div className={style.dialogs}>
         {dialogElements}
       </div>
@@ -29,15 +28,16 @@ const Dialogs = ({setMessage, state }) => {
     </div>
   );
 }
-const FormNewMessage = (props) => {
+
+const FormNewMessage = ({onSubmit}) => {
+  const {register, handleSubmit, reset} = useForm()
+
   return (
-    <form className={style.sendmess} onSubmit={props.handleSubmit}>
-      <Field name="message" placeholder='Input message' component='input' />
+    <form className={style.sendmess} onSubmit={handleSubmit((data) => onSubmit(data, reset))}>
+      <input {...register("message")} placeholder='Input message' />
       <button>Send</button>
     </form>
   )
 }
-
-const FormNewMessageRedux = reduxForm({ form: 'FormNewMessage' })(FormNewMessage)
 
 export default Dialogs;

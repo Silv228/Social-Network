@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import style from "./FormControls.module.css"
 
-export const FormControls = ({ input, meta, className, ...props }) => {
-    const hasError = meta.touched && meta.error
+export const FormControls = ({register, errors, className, validate, ...props}) => {
+    const hasError = !!errors['login'] && errors['login'].message
     return (
         <>
             <div className={style.loginField}>
-                <input className={`${className} ${style.formControls} ${hasError && style.error}`} {...input} {...props} />
+                <input {...register('login', {validate} )} className={`${className} ${style.formControls} ${hasError && style.error}`} {...props}/>
             </div>
-            {hasError && <span className={style.promptError}>{meta.error}</span>}
+            {hasError && <span className={style.promptError}>{!!errors['login'] && errors['login'].message}</span>}
         </>
     )
 }
 
-export const PasswordField = ({ input, meta, className, ...props }) => {
+export const PasswordField = ({ register, errors, className, validate, ...props }) => {
     const [visiblePass, changeVissible] = useState(false)
-    const hasError = meta.touched && meta.error
+    const hasError = !!errors['password'] && errors['password'].message
     return (
         <>
             <div className={`${style.passField} ${hasError && style.error}`}>
-                <input className={className} {...input} type={visiblePass ? 'text' : 'password'} {...props} />
+                <input {...register('password', {validate})} className={className} type={visiblePass ? 'text' : 'password'} {...props} />
                 <label className={style.customCheckbox}>
                     <input className={style.checkbox} type='checkbox' onChange={() => changeVissible(!visiblePass)} />
                     <span className={style.checkmark}></span>
                 </label>
             </div>
-            {hasError && <span className={style.promptError}>{meta.error}</span>}
+            {hasError && <span className={style.promptError}>{!!errors['password'] && errors['password'].message}</span>}
         </>
     )
 }

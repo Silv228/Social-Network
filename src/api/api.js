@@ -29,6 +29,10 @@ export const AuthApi = {
         const response = await instance.get('auth/me')
         return response.data
     },
+    async getCaptcha() {
+        const response = await instance.get('security/get-captcha-url')
+        return response.data
+    },
     async logIn(email, password, rememberMe, captcha) {
         const response = await instance.post('auth/login', { email, password, rememberMe, captcha })
         return response.data

@@ -31,7 +31,7 @@ const profileReducer = (state = InitialSate, action) => {
         case SET_PROFILE: {
             state.initialDataContact = {...action.profile.contacts}
             Object.keys(action.profile.contacts).forEach((soc) => {
-                state.initialDataContact[soc] = action.profile.contacts[soc] && action.profile.contacts[soc].match(/(?<!\/\/)(?<=\/)[a-z0-9]+/ig)
+                state.initialDataContact[soc] = action.profile.contacts[soc] && (soc !== 'website' ? action.profile.contacts[soc].match(/(?<!\/\/)(?<=\/)[a-z0-9]+/ig) : action.profile.contacts[soc])
             })
             return {
                 ...state,
@@ -51,7 +51,7 @@ const profileReducer = (state = InitialSate, action) => {
         case UPDATE_CONTACTS: {
             let newCont = {...action.contacts}
             Object.keys(action.contacts).forEach((soc) => {
-                newCont[soc] = newCont[soc] && `https://${soc}.com/${action.contacts[soc]}`
+                newCont[soc] = newCont[soc] && ( soc !== 'website' ? `https://${soc}.com/${action.contacts[soc]}` : action.contacts[soc] )
             })
             return {
                 ...state, initialDataContact: {...action.contacts}, profile: { ...state.profile, contacts: newCont }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Preloader from "../common/Preloader/Preloader";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import style from "./Profile.module.css";
+//import style from "./Profile.module.css";
 import ProfileInf from "./ProfileInf/ProfileInf";
 
 const Profile = (props) => {

@@ -20,7 +20,7 @@ const ProfileInf = (props) => {
   return (
     <div className={style.content}>
       {props.editMode && <ProfileSetting initialDataContact = {props.initialDataContact} updateProfile = {props.updateProfile} profile={props.profile} editMode={props.editMode} setEditMode={props.setEditMode} />}
-      <img src={props.hatsrc} alt='hat profile' className={style.hat_content} />
+      <div style={{backgroundImage: `url(${props.hatsrc})`}} className={style.hat_content}></div>
       <div className={style.ava}>
         <img src={props.ava} alt="ava_profile" />
         {props.isOwner && <label>
@@ -33,7 +33,7 @@ const ProfileInf = (props) => {
       <ProfileStatusContainer isOwner = {props.isOwner}/>
       <ul className={style.contacts}>
         {contacts}
-        {props.isOwner && <button onClick={() => props.setEditMode(true)}>edit</button>}
+        {props.isOwner && <button className={style.editContacts} onClick={() => props.setEditMode(true)}>✎</button>}
       </ul>
     </div>
   );

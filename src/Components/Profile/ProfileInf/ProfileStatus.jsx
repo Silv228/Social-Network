@@ -20,7 +20,7 @@ export const ProfileStatus = (props) => {
         <div>
             {!editMode ?
                 <div className={`${props.isOwner ? style.mystatus : style.status}`}>
-                    <span onDoubleClick={() => { props.isOwner && setEditMode(true) }}>{status || (props.isOwner ? 'Add status' : 'No Status')}</span>
+                    <span className={props.isOwner ? style.mystts : style.stts} onDoubleClick={() => { props.isOwner && setEditMode(true) }}>{status || (props.isOwner ? 'Add status' : 'No Status')}</span>
                 </div> :
                 <div className={`${style.status} ${style.editabeStatus}`}>
                     <input onChange={(e) => setStatus(e.target.value)} autoFocus={true} onBlur={() => addStatus()} value={status} />
