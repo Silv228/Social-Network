@@ -1,21 +1,28 @@
-.status{
+.status {
     display: flex;
     justify-content: center;
     height: 20px;
-    cursor: text;
 }
-.mystatus{
+
+.mystatus {
     display: flex;
     justify-content: center;
     height: 20px;
-    cursor: pointer;
     -moz-user-select: none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
 }
-.editabeStatus input{
-    cursor:auto;
+
+.editabeStatus input {
+    cursor: auto;
     border: none;
     outline: none;
-    
+}
+
+.mystts {
+    cursor: pointer;
+}
+
+.stts {
+    cursor: text;
 }

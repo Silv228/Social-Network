@@ -3,11 +3,11 @@
   border-bottom: 1px solid rgb(180, 180, 180);
 }
 .hat_content{
-  display: block;
-  margin: auto;
-  object-fit: cover;
-  width: 100%;
+  margin: auto; 
   height: 200px;
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
 }
 .ava{
   width: 130px;
@@ -43,7 +43,7 @@
   text-align: center;
   cursor: pointer;
 }
-.ava:hover span{
+.ava span:hover{
   font-size: 35px;
   background: rgba(129, 129, 129, 0.466);
 }
@@ -71,4 +71,14 @@
 .contacts li{
   padding: 0px;
   margin: 0;
+}
+.editContacts{
+  height: 32px;
+  width: 32px;
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 0;
+  border-radius: 30%;
+  cursor: pointer;
+  background: none;
 }
