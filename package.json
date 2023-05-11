@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://silv228.github.io/Social-Network",
   "dependencies": {
-    "@redux-devtools/extension": "^3.2.5",
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^13.5.0",
@@ -48,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@redux-devtools/extension": "^3.2.5",
     "@testing-library/react": "^14.0.0",
     "gh-pages": "^5.0.0"
   }
